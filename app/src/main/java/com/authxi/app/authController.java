@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class authController {
 	
 	@Autowired
-	private UserService userInstance;
+	private ChildService childInstance;
 
 	@RequestMapping("/")
 	public String welcome(){
@@ -21,28 +21,28 @@ public class authController {
     }
     
     @RequestMapping(method=RequestMethod.POST, value="/register")
-	public void registerUser(@RequestBody String name,@RequestBody String Profession, @RequestBody Integer age,@RequestBody String passwd ){
-		 User user = new User(name, Profession, age, passwd);
-		 userInstance.addUser(user);
+	public void registerChild(@RequestBody Child child){
+		 //Child user = new Child(name, surname, age, parentName);
+		 childInstance.addChild(child);
     }
     
-    @RequestMapping("/users")
-	public List<User> retrieveAllUsers(){
-		return userInstance.getallUsers();
+    @RequestMapping("/records")
+	public List<Child> retrieveAllRecords(){
+		return childInstance.getRecords();
     }
 
-    @RequestMapping("/users/{name}")
-	public User retrieveSingleUser(@PathVariable String name) {
-		return userInstance.getSingleUser(name);
+    @RequestMapping("/records/{name}")
+	public Child retrieveSingleChild(@PathVariable String name) {
+		return childInstance.getSingleChild(name);
 	}
 	
-	@RequestMapping(method=RequestMethod.PUT, value="/users/edit/{name}")
-	public String editUser(@PathVariable String name, @RequestBody User newUser ){
-		 return userInstance.editUser(name, newUser);
+	@RequestMapping(method=RequestMethod.PUT, value="/records/edit/{name}")
+	public void editChildRecord(@PathVariable String name, @RequestBody Child newUser ){
+		 childInstance.editChild(name, newUser);
 	}
 	
-    @RequestMapping(method=RequestMethod.DELETE, value="/users/del/{name}")
-	public void deleteUser(@PathVariable String name ){
-		 userInstance.deleteUser(name);
+    @RequestMapping(method=RequestMethod.DELETE, value="/records/del/{name}")
+	public void deleteChild(@PathVariable String name ){
+		 childInstance.deleteChild(name);
 	}
 }
