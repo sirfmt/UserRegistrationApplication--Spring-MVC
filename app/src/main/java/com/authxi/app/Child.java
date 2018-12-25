@@ -60,9 +60,9 @@ public class Child {
         this.PlaceOfBirth = placeOfBirth;
     }
 
-    public Child(){
-        
+    public Child(){   
     }
+
     public Child( String name, String surname, int id, String parentName){
         this.FirstName = name;
         this.Surname = surname;
