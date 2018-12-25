@@ -19,16 +19,16 @@ public class authController {
 	public String welcome(){
 		return "- Welcome- Application Default Page ";
     }
+	
+	@RequestMapping("/records")
+	public List<Child> retrieveAllRecords(){
+		return childInstance.getRecords();
+	}
     
     @RequestMapping(method=RequestMethod.POST, value="/register")
 	public void registerChild(@RequestBody Child child){
 		 //Child user = new Child(name, surname, age, parentName);
 		 childInstance.addChild(child);
-    }
-    
-    @RequestMapping("/records")
-	public List<Child> retrieveAllRecords(){
-		return childInstance.getRecords();
     }
 
     @RequestMapping("/records/{name}")

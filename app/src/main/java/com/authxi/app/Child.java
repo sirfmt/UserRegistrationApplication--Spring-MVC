@@ -1,6 +1,6 @@
 package com.authxi.app;
 
-import java.util.Date;
+//import java.util.GregorianCalendar;
 
 public class Child {
 
@@ -8,7 +8,8 @@ public class Child {
     private String Surname;
     private int parentID;
     private String ParentName;
-    private Date DateOfBirth;
+   /* private int[] dobData;
+    private GregorianCalendar DateOfBirth;*/
     private String PlaceOfBirth;
 
     
@@ -23,7 +24,11 @@ public class Child {
     public int getParentID() {
         return this.parentID;
     }
-
+    
+    public void setParentID(int id) {
+        this.parentID = id;
+    }
+   
     public String getParentName() {
         return this.ParentName;
     }
@@ -32,10 +37,6 @@ public class Child {
         this.FirstName = name;
     }
  
-    public void setAge(int id) {
-        this.parentID = id;
-    }
-   
     public void setSurname(String surname) {
         this.Surname = surname;
     }
@@ -44,17 +45,18 @@ public class Child {
         this.ParentName = parentName;
     }
 
-    public Date getDateOfBirth() {
-        return this.DateOfBirth;
-    }
-
     public String getPlaceOfBirth() {
         return this.PlaceOfBirth;
     }
     
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.DateOfBirth = dateOfBirth;
+   /* public GregorianCalendar getDateOfBirth() {
+        return this.DateOfBirth;
     }
+
+    public void setDateOfBirth(int[] dobData) {
+        // Create Gregorian Date Object
+        this.DateOfBirth = new GregorianCalendar(dobData[0], dobData[1], dobData[2]);   
+    }*/
 
     public void setPlaceOfBirth(String placeOfBirth) {
         this.PlaceOfBirth = placeOfBirth;
@@ -63,11 +65,13 @@ public class Child {
     public Child(){   
     }
 
-    public Child( String name, String surname, int id, String parentName){
+    public Child( String name, String surname, int id, String parentName, String pob){
         this.FirstName = name;
         this.Surname = surname;
         this.parentID = id;
         this.ParentName = parentName;
+       // this.dobData = dobData;
+        this.PlaceOfBirth = pob;
     }
 
 }

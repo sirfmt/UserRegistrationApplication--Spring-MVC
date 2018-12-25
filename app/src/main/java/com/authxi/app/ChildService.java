@@ -9,12 +9,8 @@ import org.springframework.stereotype.Service;
 public class ChildService{
 
     private List<Child> childData = new ArrayList<>(Arrays.asList(
-        new Child("Fortune","Farmer", 32, "password"),
-        new Child("George","Teacher", 28, "password1"),
-        new Child("Tendai","Lawyer", 24, "password2"),
-        new Child("Rakesh","Surgeon", 42, "password"),
-        new Child("Susan","Hairdresser", 28, "password1"),
-        new Child("Moman","Physician", 57, "password2")
+        new Child("Fortune","Munoda", 112432, "Joyful","Harare" ),
+        new Child("George","Chisvo", 556428, "Farai", "Gweru")
     ));
 
     public List<Child> getRecords(){
